@@ -15,6 +15,8 @@ fi
 area=(${tempArray[@]})
 }
 
+id=$1
+
 area[0]=2
 area[1]=3
 area[2]=3
@@ -31,15 +33,29 @@ bet=${area[0]}
 fi
 echo "Betting $bet"
 won=`./bet $bet 49.5 "<"`
-istrue="true"
-if [ $won == $istrue ]
+if [ "$won" == "true" ]
 then
 wonBet ${area[@]}
 echo "Won!"
-else
+elif [ "$won" == "false" ]
+then
 declare -i area[${#area[@]}]
 area[${#area[*]}]=$bet
 echo "Loss!"
+elif [ "$won" == "Insufficient funds" ]
+then
+echo "Insufficient funds!"
+kill $id
+exit
+elif [ "$won" == "Unauthorized" ]
+then
+echo "Unauthorized! Check your token file and make sure it's correct!"
+kill $id
+exit
+else
+echo "An unknown error occured!"
+kill $id
+exit
 fi
 echo
 echo "Line: ${area[@]}"

@@ -2,8 +2,10 @@
 #
 #Script to autobet Labouchere style
 
+id=`pgrep autobet`
+
 while true
 do
-./labouchere
+./labouchere $id
 read -t 0.5 -n 1 keypress && break
 done
