@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+#Script to autobet Labouchere style
+
+while true
+do
+./labouchere
+read -t 0.5 -n 1 keypress && break
+done
