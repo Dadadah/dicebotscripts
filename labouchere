@@ -43,4 +43,5 @@ echo "Loss!"
 fi
 echo
 echo "Line: ${area[@]}"
+sleep 0.5
 done
