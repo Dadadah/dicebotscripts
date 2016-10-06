@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+#Get details on a user
+
+username=$1
+
+echo $1
+echo $username
+
+curl -X GET https://api.primedice.com/api/users/$username

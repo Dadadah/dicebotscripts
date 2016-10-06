@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+#Who am I?
+
+token=`cat token`
+
+curl -X GET https://api.primedice.com/api/users/1?api_key=$token 2>/dev/null | sed -e "s/{//g" -e "s/,/\n/g" -e "s/}//g" -e "s/\"user[^\n]*\n//" -e "s/\"meta[^\n]*//"
