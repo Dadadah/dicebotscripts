@@ -53,7 +53,7 @@ echo "Unauthorized! Check your token file and make sure it's correct!"
 kill $id
 exit
 else
-echo "An unknown error occured!"
+echo "An unknown error occured! : $won"
 kill $id
 exit
 fi
